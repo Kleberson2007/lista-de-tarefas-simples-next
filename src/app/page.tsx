@@ -5,10 +5,18 @@ import "./globals.css";
 export default function Home() {
   const [tarefas, setTarefas] = useState(["Estudar contador", "Estudar lista de tarefas"]);
   const [nova, setNova] = useState("");
+  const [edição, setEdição] = useState<number | null>(null);
 
   function adicionar(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setTarefas([...tarefas, nova]);
+    if (edição !== null) {
+      const novasTarefas = [...tarefas];
+      novasTarefas [edição] = nova;
+      setTarefas(novasTarefas);
+      setEdição(null);
+    } else {
+      setTarefas([...tarefas, nova]);
+    }
     setNova("");
   }
 
@@ -16,6 +24,11 @@ export default function Home() {
     const novasTarefas = [...tarefas];
     novasTarefas.splice(i, 1);
     setTarefas(novasTarefas)
+  }
+
+  function editar(index: number) {
+    setNova(tarefas[index]);
+    setEdição(index)
   }
 
   return (
@@ -29,7 +42,7 @@ export default function Home() {
         placeholder="digite sua tarefa..."
         value={nova}
         onChange={e => setNova(e.target.value)} />
-        <button type="submit">adicionar</button>
+        <button type="submit">{edição !== null ? "atualizar" : "adicionar"}</button>
       </form>
       <ul>
         {tarefas.map((tarefa, index) => (
@@ -39,6 +52,7 @@ export default function Home() {
                 {tarefa}
               </div>
               <button className="botãodeletar" onClick={() => deletar(index)}>deletar</button>
+              <button className="botãoeditar" onClick={() => editar(index)}>editar</button>
             </div>
           </li>
         ))}
