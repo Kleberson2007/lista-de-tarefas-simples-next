@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    font-family: Arial;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(112, 97, 97);
+}
+
+#lista {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    padding: 10px;
+    border: 10px solid black;
+    border-radius: 20px;
+    background-color: rgba(117, 87, 84, 0.404);
+    width: 600px;
+    height: 600px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 100%;
+    margin-top: 15px;
+}
+
+#lis {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    gap: 10px;
+}
