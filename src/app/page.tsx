@@ -51,8 +51,10 @@ export default function Home() {
               <div id="texto">
                 {tarefa}
               </div>
-              <button className="botãodeletar" onClick={() => deletar(index)}>deletar</button>
-              <button className="botãoeditar" onClick={() => editar(index)}>editar</button>
+              <div id="botoes">
+                <button className="botãodeletar" onClick={() => deletar(index)}>deletar</button>
+                <button className="botãoeditar" onClick={() => editar(index)}>editar</button>
+              </div>
             </div>
           </li>
         ))}
