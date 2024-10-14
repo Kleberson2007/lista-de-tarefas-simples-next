@@ -38,11 +38,12 @@ export default function Home() {
       </header>
       <form onSubmit={adicionar}>
         <input
+        id="escrevertarefa"
         type="text"
         placeholder="digite sua tarefa..."
         value={nova}
         onChange={e => setNova(e.target.value)} />
-        <button type="submit">{edição !== null ? "atualizar" : "adicionar"}</button>
+        <button id="adicionartarefa" type="submit">{edição !== null ? "atualizar" : "adicionar"}</button>
       </form>
       <ul>
         {tarefas.map((tarefa, index) => (
@@ -52,8 +53,8 @@ export default function Home() {
                 {tarefa}
               </div>
               <div id="botoes">
-                <button className="botãodeletar" onClick={() => deletar(index)}>deletar</button>
-                <button className="botãoeditar" onClick={() => editar(index)}>editar</button>
+                <button id="botaodeletar" onClick={() => deletar(index)}>deletar</button>
+                <button id="botaoeditar" onClick={() => editar(index)}>editar</button>
               </div>
             </div>
           </li>
