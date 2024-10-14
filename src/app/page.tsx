@@ -45,21 +45,23 @@ export default function Home() {
         onChange={e => setNova(e.target.value)} />
         <button id="adicionartarefa" type="submit">{edição !== null ? "atualizar" : "adicionar"}</button>
       </form>
-      <ul>
-        {tarefas.map((tarefa, index) => (
-          <li key={index}>
-            <div id="lis">
-              <div id="texto">
-                {tarefa}
+      <div id="tarefas">
+        <ul>
+          {tarefas.map((tarefa, index) => (
+            <li key={index}>
+              <div id="lis">
+                <div id="texto">
+                  {tarefa}
+                </div>
+                <div id="botoes">
+                  <button id="botaodeletar" onClick={() => deletar(index)}>deletar</button>
+                  <button id="botaoeditar" onClick={() => editar(index)}>editar</button>
+                </div>
               </div>
-              <div id="botoes">
-                <button id="botaodeletar" onClick={() => deletar(index)}>deletar</button>
-                <button id="botaoeditar" onClick={() => editar(index)}>editar</button>
-              </div>
-            </div>
-          </li>
-        ))}
-      </ul>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
